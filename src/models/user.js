@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       minLength: 4,
+      maxLength: 50,
     },
     lastName: {
       type: String,
@@ -31,7 +32,7 @@ const userSchema = mongoose.Schema(
       required: true,
       validate(value) {
         if (!validator.isStrongPassword(value)) {
-          throw new Error("invalid email address " + value);
+          throw new Error("Please choose a strong password " + value);
         }
       },
     },
