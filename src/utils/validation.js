@@ -10,6 +10,19 @@ const userSignupValidation = (req) => {
     throw new Error("Password choose a strong password");
   }
 };
+
+const userEditValidation = (req)=>{
+  const allowedEditFields = ["firstName", "lastName", "emailId","gender","skills","about","age","photoUrl"]
+  const isEditAllowed = Object.keys(req.body).every((field)=> allowedEditFields.includes(field))
+  return isEditAllowed
+}
+
+const userPasswordValidation = (req)=>{
+  if (!validator.isStrongPassword(req.body)) {
+    throw new Error("Password choose a strong password");
+  }
+}
 module.exports={
-    userSignupValidation
+    userSignupValidation,
+    userEditValidation
 }
