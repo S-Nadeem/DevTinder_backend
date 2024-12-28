@@ -55,10 +55,11 @@ const userSchema = mongoose.Schema(
     },
     photoUrl: {
       type: String,
-      default: "https://google.com",
+      default:
+        "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg",
       validate(value) {
         if (!validator.isURL(value)) {
-          throw new Error("invalid email address " + value);
+          throw new Error("invalid PhotoUrl " + value);
         }
       },
     },
