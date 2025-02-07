@@ -51,12 +51,12 @@ const userSchema = mongoose.Schema(
     },
     about: {
       type: String,
-      default: "this is about page",
+      default:
+        "technical expertise to help drive the company's mission forward. I am confident that my passion for front-end development and my commitment to continuous learning make me a strong fit for this role",
     },
     photoUrl: {
       type: String,
-      default:
-        "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg",
+      default: "https://geographyandyou.com/images/user-profile.png",
       validate(value) {
         if (!validator.isURL(value)) {
           throw new Error("invalid PhotoUrl " + value);
